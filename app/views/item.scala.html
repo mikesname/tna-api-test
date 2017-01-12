@@ -2,10 +2,21 @@
 
 @main(s"Item: ${item.id}") {
 
-    <h2>@item.id</h2>
+    <h1>@item.title</h1>
+    <emph>@item.id</emph>
+
+    @item.parent.map { pid =>
+        <h3><a href="@routes.TnaController.item(pid)">Parent Item</a></h3>
+    }
+
+    @item.description.map { desc =>
+        @Html(desc)
+    }
+
+    <hr/>
 
     <pre>
-        @play.api.libs.json.Json.prettyPrint(item.data)
+@play.api.libs.json.Json.prettyPrint(item.data)
     </pre>
 
     @if(children.nonEmpty) {
