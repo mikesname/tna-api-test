@@ -16,6 +16,14 @@
         <script src="@routes.Assets.versioned("javascripts/hello.js")" type="text/javascript"></script>
     </head>
     <body>
+        <header>
+            <h1>TNA API V1 Test</h1>
+            <nav>
+                <a href="@routes.TnaController.records()">Records</a> |
+                <a href="@routes.TnaController.fileAuthorities()">File Authorities</a> |
+                <a href="@routes.TnaController.archives()">Archives</a>
+            </nav>
+        </header>
         @* And here's where we render the `Html` object containing
          * the page content. *@
         @content
